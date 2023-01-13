@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PhotoSphereViewer - gallery demo</title>
+
+  <link rel="stylesheet" href="css/photo-sphere-viewer.css">
+  <link rel="stylesheet" href="css//gallery.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="photosphere"></div>
+
+<script src="js/three.js"></script>
+<script src="js/browser.js"></script>
+<script src="js/photo-sphere-viewer.js"></script>
+<script src="js/gallery.js"></script>
+
+<script>
+
+  const items = [
+    {
+      id       : 'sphere',
+      panorama :  'https://cdn.jsdelivr.net/gh/tanyayin/images/img_1.jpg',
+    thumbnail:  'https://cdn.jsdelivr.net/gh/tanyayin/images/1.jpg',
+      options  : {
+        caption: 'Parc national du Mercantour <b>&copy; Damien Sorel</b>',
+      },
+    },
+    
+    {
+      id       : 2,
+       panorama :  'https://cdn.jsdelivr.net/gh/tanyayin/images/img_2.jpg',
+    thumbnail:  'https://cdn.jsdelivr.net/gh/tanyayin/images/2.jpg',
+      name     : 'Two',
+      options  : {
+        caption: 'Cape Florida Light, Key Biscayne <b>&copy; Pixexid</b>',
+      },
+    },
+    {
+      id       : 3,
+      panorama :  'https://cdn.jsdelivr.net/gh/tanyayin/images/img_3.jpg',
+    thumbnail:  'https://cdn.jsdelivr.net/gh/tanyayin/images/3.jpg',
+      name     : 'Three',
+      options  : {
+        caption: 'Cape Florida Light, Key Biscayne <b>&copy; Pixexid</b>',
+      },
+    },
+    {
+      id       : 4,
+      panorama :  'https://cdn.jsdelivr.net/gh/tanyayin/images/img_4.jpg',
+      thumbnail:  'https://cdn.jsdelivr.net/gh/tanyayin/images/4.jpg',
+      name     : 'Four',
+      options  : {
+        caption: 'Cape Florida Light, Key Biscayne <b>&copy; Pixexid</b>',
+      },
+    },
+    {
+      id       : 5,
+      panorama :  'https://cdn.jsdelivr.net/gh/tanyayin/images/img_5.jpg',
+    thumbnail:  'https://cdn.jsdelivr.net/gh/tanyayin/images/5.jpg',
+      name     : 'Five',
+      options  : {
+        caption: 'Cape Florida Light, Key Biscayne <b>&copy; Pixexid</b>',
+      },
+    },
+    {
+      id       : 6,
+       panorama :  'https://cdn.jsdelivr.net/gh/tanyayin/images/img_6.jpg',
+    thumbnail:  'https://cdn.jsdelivr.net/gh/tanyayin/images/6.jpg',
+      name     : 'Six',
+      options  : {
+        caption: 'Cape Florida Light, Key Biscayne <b>&copy; Pixexid</b>',
+      },
+    }, 
+  ];
+
+  const viewer = new PhotoSphereViewer.Viewer({
+    container : 'photosphere',
+    loadingImg: 'img/photosphere-logo.gif',
+    panorama  : items[0].panorama,
+    caption   : items[0].options.caption,
+    plugins   : [
+      [PhotoSphereViewer.GalleryPlugin, {
+        items        : items,
+        visibleOnLoad: true,
+        hideOnClick:false,
+        // thumbnailSize: {
+        //   width: 100,
+        //   height: 100,
+        // }
+      }],
+    ],
+  });
+
+  const gallery = viewer.getPlugin(PhotoSphereViewer.GalleryPlugin);
+</script>
+
+</body>
+</html>
