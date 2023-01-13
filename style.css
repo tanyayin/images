@@ -17,7 +17,7 @@ html, body {
 }
 
 #photosphere,.psv-container{
- background: url(../img/photosphere-logo.png);
+ background: url(https://cdn.jsdelivr.net/gh/tanyayin/images/photosphere-logo.png);
     background-size: cover;
     background-position: center;
 }
